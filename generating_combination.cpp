@@ -46,3 +46,6 @@ int main() {
 //   } while (std::prev_permutation(v.begin(), v.end()));
 //   return 0;
 // }
+
+// Reference
+// https://stackoverflow.com/questions/12230763/prev-permutation-vs-next-permutation-difficulty
