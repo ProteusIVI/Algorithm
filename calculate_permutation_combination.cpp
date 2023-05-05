@@ -23,8 +23,17 @@ int main() {
    cout << "\nCombination : " << comb;
    
    // If r = 2, then using for loop will be faster.
+   comb = 0;
    for (int k = 1; k < n; k++) {
       comb += n - k;
+   }
+   
+   // Below method works for every r
+   // Refer to https://stackoverflow.com/questions/1838368/calculating-the-amount-of-combinations
+   comb = 1;
+   for (unsigned long long d = 1; d <= r; ++d) {
+       comb = comb * n / d;
+       n = n - 1;
    }
   
   // formula without repetition
