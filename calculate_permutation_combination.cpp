@@ -21,6 +21,11 @@ int main() {
    // formula without repetition
    comb = fact(n) / (fact(r) * fact(n-r));
    cout << "\nCombination : " << comb;
+   
+   // If r = 2, then using for loop will be faster.
+   for (int k = 1; k < n; k++) {
+      comb += n - k;
+   }
   
   // formula without repetition
    per = fact(n) / fact(n-r);
