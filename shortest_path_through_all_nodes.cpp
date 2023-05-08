@@ -1,5 +1,3 @@
-// Only pass 7/10 test case
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -21,8 +19,9 @@ void bfs(int r, int c) {
 
     queue<pair<int,int>> q;
     q.push({r, c});
+    vis[r][c] = true;
     // printf("raw[%d][%d] = ", r, c);
-    char node = raw[r][c];
+    int node = raw[r][c] - '0';
     // cout << "node = "<< node;
 
     while (!q.empty()) {
@@ -30,10 +29,10 @@ void bfs(int r, int c) {
         q.pop();
 
         // check distance
-        char next_node = raw[p.first][p.second];
-        if (next_node > '0' && next_node <= '9') { 
+        int next_node = raw[p.first][p.second] - '0';
+        if (next_node > 0 && next_node <= 9) { 
             // cout << " next_node = " << next_node << " distance = " << distance << "\n";
-            matrix[node - '0'][next_node - '0'] = distance;
+            matrix[node-1][next_node-1] = distance;
             count++;
         }
 
@@ -87,20 +86,20 @@ int main() {
         raw.push_back(row);
     }
 
-    h = 4;
-    w = 6;
-    n = 3;
-    s = 1;
-    f = 2;
+    // h = 4;
+    // w = 6;
+    // n = 4;
+    // s = 3;
+    // f = 4;
 
-    raw = {{'#','1','.','.','#','.'},
-           {'#','.','.','.','2','#'}, 
-           {'.','.','#','.','#','.'}, 
-           {'3','.','#','.','.','.'}};
+    // raw = {{'#','1','.','.','#','.'},
+    //        {'#','.','.','.','2','#'}, 
+    //        {'.','.','#','.','#','4'}, 
+    //        {'3','.','#','.','.','.'}};
 
-    shrines[0] = {0,1};
-    shrines[1] = {1,4};
-    shrines[2] = {3,0};
+    // shrines[0] = {0,1};
+    // shrines[1] = {1,4};
+    // shrines[2] = {3,0};
     // shrines[3] = {2,5};
 
     for (int i = 0; i < n; i++) {
@@ -123,8 +122,8 @@ int main() {
         for (int i = 0; i < n - 1; i++) {
             int from = list[i];
             int to = list[i+1];
-            // printf("from %d to %d take %d \n", from, to, matrix[from][to]);
-            sum += matrix[from][to];
+            // printf("from %d to %d take %d \n", from, to, matrix[from-1][to-1]);
+            sum += matrix[from-1][to-1];
         }
         posibility.insert(sum);
     } while (next_permutation(list.begin() + 1, list.end() - 1));
