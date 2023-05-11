@@ -4,8 +4,9 @@ Implementation for the common algorithms
 #### Important Tips ####
 1. Always buffer more than the requirements
 - Eg: charecters up to 20 => char[20+10].
-3. std::map::count() faster than std::find()
+2. std::map::count() faster than std::find()
 - Eg: popularity_poll_code_pro.cpp.
+3. std::stable_sort reserve the relative index of equal elements. Pretty useful!!!!
 
 #### Illustration ####
 valid_triangle_number.cpp
