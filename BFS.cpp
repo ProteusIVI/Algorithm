@@ -1,5 +1,4 @@
-/*
-BFS ON GRAPH
+// BFS ON GRAPH
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -65,7 +64,6 @@ int main() {
     cout << hours;
     return 0;
 }
-*/
 
 // BFS ON GRID
 class Solution {
